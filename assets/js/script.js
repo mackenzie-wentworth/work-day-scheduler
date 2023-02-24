@@ -32,6 +32,10 @@ $(document).ready(function () {
 function clickSave() {
   $(".saveBtn").on("click", function () {
     console.log(this);
+    var description = $(this).siblings(".description").val();
+    var hourId = $(this).parent().attr("id");
+
+    localStorage.setItem(hourId, description);
   });
 
 }
