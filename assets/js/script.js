@@ -27,6 +27,9 @@ $(document).ready(function () {
   populateLocalStorage();
 
   // TODO: Add code to display the current date in the header of the page.
+  var nowDayJs = dayjs();
+  $("#currentDay").text(nowDayJs); 
+
 });
 
 // how the click save will save work day events
@@ -43,7 +46,6 @@ function clickSave() {
 
 //take Day.js hour parameter and update time block
 function updateTimeBlock(dayjsHour) {
-  console.log("Inside updateTimeBlock()");
 
   // use 24 hour time format so for loop from 9 to 17
   for (var workHour = 9; workHour <= 17; workHour++) {
@@ -51,13 +53,10 @@ function updateTimeBlock(dayjsHour) {
     var timeBlockIdClass = timeBlockId + ".time-block";
 
     if (workHour > dayjsHour) {
-      console.log(timeBlockIdClass + " future");
       $(timeBlockIdClass).addClass("future");
     } else if (workHour === dayjsHour) {
-      console.log(timeBlockIdClass + " present");
       $(timeBlockIdClass).addClass("present");
     } else if (workHour < dayjsHour) {
-      console.log(timeBlockIdClass + " past");
       $(timeBlockIdClass).addClass("past");
 
     }
