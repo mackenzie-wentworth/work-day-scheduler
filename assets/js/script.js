@@ -30,6 +30,9 @@ $(document).ready(function () {
 
 // how the click save will save work day events
 function clickSave() {
+  $(".saveBtn").on("click", function () {
+    console.log(this);
+  });
 
 }
 
