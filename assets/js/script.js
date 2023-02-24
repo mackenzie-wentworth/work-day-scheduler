@@ -24,7 +24,8 @@ $(document).ready(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
+  populateLocalStorage();
+
   // TODO: Add code to display the current date in the header of the page.
 });
 
@@ -61,6 +62,18 @@ function updateTimeBlock(dayjsHour) {
 
     }
 
+  }
+
+}
+
+function populateLocalStorage() {
+  // use 24 hour time format so for loop from 9 to 17
+  for (var workHour = 9; workHour <= 17; workHour++) {
+    var timeBlockId = "#" + workHour;
+    var timeBlockIdDescription = timeBlockId + " .description";
+    // console.log(timeBlockIdDescription);
+
+    $(timeBlockIdDescription).val(localStorage.getItem(workHour));
   }
 
 }
