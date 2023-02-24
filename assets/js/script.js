@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+$(document).ready(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -15,7 +15,12 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  //
+
+  var dayjsHour = dayjs().hour();
+
+  updateTimeBlock(dayjsHour);
+
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
@@ -25,5 +30,30 @@ $(function () {
 
 // how the click save will save work day events
 function clickSave() {
+
+}
+
+//take Day.js hour parameter and update time block
+function updateTimeBlock(dayjsHour) {
+  console.log("Inside updateTimeBlock()");
+
+  // use 24 hour time format so for loop from 9 to 17
+  for (var workHour = 9; workHour <= 17; workHour++) {
+    var timeBlockId = "#" + workHour;
+    var timeBlockIdClass = timeBlockId + ".time-block";
+
+    if (workHour > dayjsHour) {
+      console.log(timeBlockIdClass + " future");
+      $(timeBlockIdClass).addClass("future");
+    } else if (workHour === dayjsHour) {
+      console.log(timeBlockIdClass + " present");
+      $(timeBlockIdClass).addClass("present");
+    } else if (workHour < dayjsHour) {
+      console.log(timeBlockIdClass + " past");
+      $(timeBlockIdClass).addClass("past");
+
+    }
+
+  }
 
 }
