@@ -18,7 +18,7 @@ Given a starter code for this week's Challenge, I used third-party funcitonality
 
 ## Mock-Up
 
-The following image displays the appearance and functionality of "Work Day Scheduler" web application.
+The following image displays the appearance and functionality of "Work Day Scheduler" web application:
 
 ![An image of the web application for the Work Day Scheduler.](./assets/images/deployed-page-scheduler.png)
 
