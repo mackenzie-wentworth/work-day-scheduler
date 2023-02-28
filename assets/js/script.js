@@ -27,8 +27,9 @@ $(document).ready(function () {
   populateLocalStorage();
 
   // TODO: Add code to display the current date in the header of the page.
-  var nowDayJs = dayjs();
-  $("#currentDay").text(nowDayJs); 
+  // var nowDayJs = dayjs();
+  // $("#currentDay").text(nowDayJs); 
+  liveTime();
 
 });
 
@@ -75,4 +76,10 @@ function populateLocalStorage() {
     $(timeBlockIdDescription).val(localStorage.getItem(workHour));
   }
 
+}
+
+function liveTime() {
+  var nowDayJs = dayjs();
+  $("#currentDay").text(nowDayJs);
+  setInterval(liveTime, 1000);
 }
