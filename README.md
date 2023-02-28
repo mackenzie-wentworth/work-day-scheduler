@@ -2,7 +2,7 @@
 
 
 ## Link to Deployed Webpage 
-To view the "Work Day Scheduler" web application, please visit the following link: 
+To view the "Work Day Scheduler" web application, please visit the following link: https://mackenzie-wentworth.github.io/work-day-scheduler/
 
 
 ## The Task
